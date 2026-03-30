@@ -71,22 +71,30 @@ document.getElementById("numberConversionOutput").innerHTML = output;
 // Part 3: Math & Formatting
 // ==========================
 
-// TODO:
-// 1. Create at least 2-3 numeric variables
-//
-// 2. Perform calculations:
-//    - at least one addition
-//    - at least one other operation (subtract, multiply, or divide)
-//
-// 3. Use at least ONE of the following:
-//    - toFixed()
-//    - toLocaleString()
-//    - Number.parseInt()
-//    - Number.parseFloat()
-//
-// 4. Build a string showing your results
-//
-// 5. Display the results inside the element with id="mathOutput"
+// Create numeric values
+let price = 20.5;
+let shipping = 5;
+let taxRate = 0.08;
+
+// Calculations
+let subtotal = price + shipping;
+let tax = subtotal * taxRate;
+let total = subtotal + tax;
+
+// Format numbers
+let formattedTax = tax.toFixed(2);
+let formattedTotal = total.toFixed(2);
+
+// Build output string
+let mathOutput = "";
+mathOutput += "Price: $" + price + "<br><br>";
+mathOutput += "Shipping: $" + shipping + "<br><br>";
+mathOutput += "Subtotal: $" + subtotal + "<br><br>";
+mathOutput += "Tax: $" + formattedTax + "<br><br>";
+mathOutput += "Total: $" + formattedTotal + "<br><br>";
+
+// Display on page
+document.getElementById("mathOutput").innerHTML = mathOutput;
 
 // ==========================
 // Part 4: Conditionals
