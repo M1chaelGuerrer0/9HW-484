@@ -30,10 +30,10 @@ document.getElementById("dateOutput").textContent = dateString;
 // ==========================
 
 // Create values
-let value1 = "42";
-let value2 = "19.75";
-let value3 = "hello";
-let value4 = "100";
+let value1 = "67";
+let value2 = "3.14";
+let value3 = "abc";
+let value4 = "2077";
 
 // Convert values
 let conv1 = Number(value1);
@@ -89,24 +89,27 @@ let formattedTotal = total.toFixed(2);
 let mathOutput = "";
 mathOutput += "Price: $" + price + "<br><br>";
 mathOutput += "Shipping: $" + shipping + "<br><br>";
-mathOutput += "Subtotal: $" + subtotal + "<br><br>";
-mathOutput += "Tax: $" + formattedTax + "<br><br>";
-mathOutput += "Total: $" + formattedTotal + "<br><br>";
-
-// Display on page
-document.getElementById("mathOutput").innerHTML = mathOutput;
+mathOutput += "Subtotal: $" + price + " + $" + shipping + " = $"  + subtotal + "<br><br>";
+mathOutput += "Tax: $" + subtotal + " * " + taxRate + " = $" + formattedTax + "<br><br>";
+mathOutput += "Total: $" + subtotal + " + $" + formattedTax + " = $" + formattedTotal + "<br><br>";
 
 // ==========================
 // Part 4: Conditionals
 // ==========================
 
-// TODO:
-// 1. Write at least TWO if/else statements
-//
-// Ideas:
-// - check if a value is NaN
-// - check if a number is an integer
-// - check if a result is greater than a certain value
-//
-// 2. Display a message on the page based on the condition
-//    (append it to an existing section or create a new message)
+// Check if total is greater than 25
+if (total > 25) {
+  mathOutput += "$" + formattedTotal + " > $25. This purchase is expensive.<br><br>";
+} else {
+  mathOutput += "$" + formattedTotal + " <= $25. This purchase is affordable.<br><br>";
+}
+
+// Check if tax is an integer
+if (Number.isInteger(tax)) {
+  mathOutput += "$" + formattedTax + " is a whole number.";
+} else {
+  mathOutput += "$" + formattedTax + " is not a whole number.";
+}
+
+// Display on page results from Part 3 and Part 4
+document.getElementById("mathOutput").innerHTML = mathOutput;
