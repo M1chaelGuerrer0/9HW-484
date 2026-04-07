@@ -68,48 +68,38 @@ output += " -> isInteger: " + Number.isInteger(conv4) + "<br><br>";
 document.getElementById("numberConversionOutput").innerHTML = output;
 
 // ==========================
-// Part 3: Math & Formatting
+// Part 3: Math & Formatting (Option C)
 // ==========================
 
-// Create numeric values
-let price = 20.5;
-let shipping = 5;
-let taxRate = 0.08;
+// Create a large number
+let population = 1234567890;
 
-// Calculations
-let subtotal = price + shipping;
-let tax = subtotal * taxRate;
-let total = subtotal + tax;
 
-// Format numbers
-let formattedTax = tax.toFixed(2);
-let formattedTotal = total.toFixed(2);
+// Format the number using toLocaleString()
+let formattedPopulation = population.toLocaleString();
 
-// Build output string
+// Build output
 let mathOutput = "";
-mathOutput += "Price: $" + price + "<br><br>";
-mathOutput += "Shipping: $" + shipping + "<br><br>";
-mathOutput += "Subtotal: $" + price + " + $" + shipping + " = $"  + subtotal + "<br><br>";
-mathOutput += "Tax: $" + subtotal + " * " + taxRate + " = $" + formattedTax + "<br><br>";
-mathOutput += "Total: $" + subtotal + " + $" + formattedTax + " = $" + formattedTotal + "<br><br>";
+mathOutput += "Raw number: " + population + "<br><br>";
+mathOutput += "Formatted number: " + formattedPopulation + "<br><br>";
 
 // ==========================
 // Part 4: Conditionals
 // ==========================
 
-// Check if total is greater than 25
-if (total > 25) {
-  mathOutput += "$" + formattedTotal + " > $25. This purchase is expensive.<br><br>";
+// Check if number is greater than 1 billion
+if (population > 1000000000) {
+  mathOutput += "This is a very large number.<br><br>";
 } else {
-  mathOutput += "$" + formattedTotal + " <= $25. This purchase is affordable.<br><br>";
+  mathOutput += "This is not a very large number.<br><br>";
 }
 
-// Check if tax is an integer
-if (Number.isInteger(tax)) {
-  mathOutput += "$" + formattedTax + " is a whole number.";
+// Check if number is an integer
+if (Number.isInteger(population)) {
+  mathOutput += "The number is an integer.";
 } else {
-  mathOutput += "$" + formattedTax + " is not a whole number.";
+  mathOutput += "The number is not an integer.";
 }
 
-// Display on page results from Part 3 and Part 4
+// Display on page
 document.getElementById("mathOutput").innerHTML = mathOutput;
